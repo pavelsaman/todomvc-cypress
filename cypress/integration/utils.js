@@ -34,28 +34,19 @@ export const toggleAll = () => {
       .check();
 
     allItems()
-      .each(todo => {
-          cy.get(todo)
-            .should('have.class', 'completed');
-      });
+      .each(todo => expect(todo).to.have.class('completed'));
 };
 export const unToggleAll = () => {
     cy.get(TOGGLE_ALL)
       .uncheck();
 
     allItems()
-      .each(todo => {
-          cy.get(todo)
-            .should('not.have.class', 'completed');
-      });
+      .each(todo => expect(todo).not.to.have.class('completed'));
 };
 export const checkState = (...todos) => {
     allItems()
       .should('have.length', todos.length)
-      .each((todo, i) => {
-         cy.get(todo)
-           .should('contain.text', todos[i]);
-      });
+      .each((todo, i) => expect(todo).to.contain.text(todos[i]));
 };
 export const deleteTodo = n => cy.get('.destroy').invoke('show').eq(n).click();
 export const goToAll = () => cy.get('a').contains('All').click();
