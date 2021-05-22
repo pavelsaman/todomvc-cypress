@@ -1,0 +1,8 @@
+{
+    "baseUrl": "https://todomvc.com/examples/vanilla-es6/",
+    "video": false,
+    "videosFolder": "cypress/results/videos",
+    "screenshotsFolder": "cypress/results/screenshots",
+    "trashAssetsBeforeRuns": true,
+    "testFiles": "**/*.spec.js"
+}

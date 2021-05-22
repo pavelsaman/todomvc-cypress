@@ -1,0 +1,20 @@
+{
+  "name": "todomvc-cypress",
+  "version": "1.0.0",
+  "description": "Example smoke & regression e2e tests for TODO MVC app",
+  "scripts": {
+    "open": "./node_modules/.bin/cypress open",
+    "run": "./node_modules/.bin/cypress run --headless --browser chromium"
+  },
+  "keywords": [
+    "todos",
+    "cypress",
+    "regression",
+    "smoke"
+  ],
+  "author": "Pavel Saman",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "~7.3.0"
+  }
+}
