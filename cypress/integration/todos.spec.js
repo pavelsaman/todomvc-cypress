@@ -38,7 +38,7 @@ describe('Add new todos', () => {
         cy.visit('/');
     });
 
-    it('Add two new todos', () => {
+    it('Add one new todo', () => {
         newTodos(ITEM_ONE)
           .then(() => checkState(ITEM_ONE));
     });
