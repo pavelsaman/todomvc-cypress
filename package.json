@@ -1,7 +1,7 @@
 {
   "name": "todomvc-cypress",
   "version": "1.0.0",
-  "description": "Example smoke & regression e2e tests for TODO MVC app",
+  "description": "Some smoke & regression e2e checks in Cypress for TODO MVC app",
   "scripts": {
     "open": "./node_modules/.bin/cypress open",
     "run": "./node_modules/.bin/cypress run --headless --browser chromium"
