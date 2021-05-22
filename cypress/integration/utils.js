@@ -63,3 +63,14 @@ export const goToActive = () => cy.get('a').contains('Active').click();
 export const goToCompleted = () => cy.get('a').contains('Completed').click();
 export const todosCount = () => cy.get('.todo-count');
 export const clearCompleted = () => cy.get('.clear-completed').click();
+export const setState = () => {
+    cy.fixture('todo_one')
+      .then(itemOne => {
+        cy.fixture('todo_two')
+          .then(itemTwo => {
+            window.localStorage.setItem(Cypress.env('storageItemName'), JSON.stringify([itemOne, itemTwo]));
+          });
+      });
+
+    cy.reload();
+};

@@ -14,6 +14,7 @@ import {
     goToCompleted,
     todosCount, 
     clearCompleted,
+    setState,
 } from './utils';
 const ITEM_ONE = 'Learn Cypress';
 const ITEM_TWO = 'Learn JS';
@@ -22,7 +23,7 @@ describe('Persistent state', () => {
 
     beforeEach(() => {
         cy.visit('/');
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
     });
 
     it('Keep todos after page reload', () => {
@@ -75,7 +76,7 @@ describe('Toggle todos', () => {
 
     beforeEach(() => {
         cy.visit('/');
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
     });
 
     it('Toggle first todo', () => {
@@ -105,7 +106,7 @@ describe('Delete todos', () => {
 
     beforeEach(() => {
         cy.visit('/');
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
     });
 
     it('Delete first todo', () => {
@@ -129,7 +130,7 @@ describe('See active todos', () => {
 
     beforeEach(() => {
         cy.visit('/');
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
     });
 
     it('See two active todos', () => {
@@ -155,7 +156,7 @@ describe('See completed todos', () => {
 
     beforeEach(() => {
         cy.visit('/');
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
     });
 
     it('See two completed todos', () => {
@@ -189,20 +190,20 @@ describe('Todo count', () => {
     });
 
     it('See count one', () => {
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
         todosCount()
           .should('have.text', '2 items left');
     });
 
     it('See count one after completing one todo', () => {
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
         toggleTodo(0);
         todosCount()
           .should('have.text', '1 item left');
     });
 
     it('See count one on active tab after completing one todo', () => {
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
         toggleTodo(0);
         goToActive();
         todosCount()
@@ -210,7 +211,7 @@ describe('Todo count', () => {
     });
 
     it('See count one on completed tab after completing one todo', () => {
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
         toggleTodo(0);
         goToCompleted();
         todosCount()
@@ -218,7 +219,7 @@ describe('Todo count', () => {
     });
 
     it('See count one after deleting one todo', () => {
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
         deleteTodo(0);
         todosCount()
           .should('have.text', '1 item left');
@@ -229,7 +230,7 @@ describe('Clear completed todos', () => {
 
     beforeEach(() => {
         cy.visit('/');
-        newTodos(ITEM_ONE, ITEM_TWO);
+        setState();
     });
 
     it('Clear completed todos', () => {

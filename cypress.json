@@ -4,5 +4,8 @@
     "videosFolder": "cypress/results/videos",
     "screenshotsFolder": "cypress/results/screenshots",
     "trashAssetsBeforeRuns": true,
-    "testFiles": "**/*.spec.js"
+    "testFiles": "**/*.spec.js",
+    "env": {
+        "storageItemName": "todos-vanilla-es6"
+    }
 }
