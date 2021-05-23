@@ -54,7 +54,7 @@ export const checkState = (...todos) => {
       .should('have.length', todos.length)
       .each((todo, i) => expect(todo).to.contain.text(todos[i]));
 };
-export const deleteTodo = n => cy.get('.destroy').invoke('show').eq(n).click();
+export const deleteTodo = n => cy.get(ALL_ITEMS).eq(n).realHover().find('.destroy').click();
 export const goToAll = () => cy.get('a').contains('All').click();
 export const goToActive = () => cy.get('a').contains('Active').click();
 export const goToCompleted = () => cy.get('a').contains('Completed').click();
