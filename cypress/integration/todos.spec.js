@@ -22,12 +22,14 @@ const ITEM_TWO = 'Learn JS';
 describe('Persistent state', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy
+          .visit('/');
         setState();
     });
 
     it('Keep todos after page reload', () => {
-        cy.reload();
+        cy
+          .reload();
         checkState(ITEM_ONE, ITEM_TWO);
     });
 });
@@ -35,7 +37,8 @@ describe('Persistent state', () => {
 describe('Add new todos', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy
+          .visit('/');
     });
 
     it('Add one new todo', () => {
@@ -75,7 +78,8 @@ describe('Add new todos', () => {
 describe('Toggle todos', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy
+          .visit('/');
         setState();
     });
 
@@ -105,7 +109,8 @@ describe('Toggle todos', () => {
 describe('Delete todos', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy
+          .visit('/');
         setState();
     });
 
@@ -129,7 +134,8 @@ describe('Delete todos', () => {
 describe('See active todos', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy
+          .visit('/');
         setState();
     });
 
@@ -155,7 +161,8 @@ describe('See active todos', () => {
 describe('See completed todos', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy
+          .visit('/');
         setState();
     });
 
@@ -181,7 +188,8 @@ describe('See completed todos', () => {
 describe('Todo count', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy
+          .visit('/');
     });
 
     it('See count zero', () => {
@@ -229,7 +237,8 @@ describe('Todo count', () => {
 describe('Clear completed todos', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy
+          .visit('/');
         setState();
     });
 

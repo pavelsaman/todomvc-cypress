@@ -6,13 +6,15 @@ const TOGGLE_ALL = '.toggle-all';
 export const allItems = () => cy.get(ALL_ITEMS);
 export const newTodos = (...todoNames) => {
     todoNames.forEach(todoName => {
-        cy.get('.new-todo')
-          .type(`${todoName}{Enter}`);
+      cy
+        .get('.new-todo')
+        .type(`${todoName}{Enter}`);
     });
     return allItems();
 };
 export const toggleTodo = n => {
-    cy.get(TOGGLE)
+    cy
+      .get(TOGGLE)
       .eq(n)
       .check();
 
@@ -21,7 +23,8 @@ export const toggleTodo = n => {
       .should('have.class', 'completed');
 };
 export const unToggleTodo = n => {
-    cy.get(TOGGLE)
+    cy
+      .get(TOGGLE)
       .eq(n)
       .uncheck();
 
@@ -30,14 +33,16 @@ export const unToggleTodo = n => {
       .should('not.have.class', 'completed');
 };
 export const toggleAll = () => {
-    cy.get(TOGGLE_ALL)
+    cy
+      .get(TOGGLE_ALL)
       .check();
 
     allItems()
       .each(todo => expect(todo).to.have.class('completed'));
 };
 export const unToggleAll = () => {
-    cy.get(TOGGLE_ALL)
+    cy
+      .get(TOGGLE_ALL)
       .uncheck();
 
     allItems()
@@ -55,9 +60,11 @@ export const goToCompleted = () => cy.get('a').contains('Completed').click();
 export const todosCount = () => cy.get('.todo-count');
 export const clearCompleted = () => cy.get('.clear-completed').click();
 export const setState = () => {
-    cy.fixture('todo_one')
+    cy
+      .fixture('todo_one')
       .then(itemOne => {
-        cy.fixture('todo_two')
+        cy
+          .fixture('todo_two')
           .then(itemTwo => {
             window.localStorage.setItem(Cypress.env('storageItemName'), JSON.stringify([itemOne, itemTwo]));
           });
