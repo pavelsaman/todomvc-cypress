@@ -115,6 +115,21 @@ describe('Delete todos', () => {
         setState();
     });
 
+    it('Delete button is visible when hovering over todo', () => {
+        allItems()
+          .eq(0)
+          .as('itemOne');
+
+        cy
+          .get('@itemOne')
+          .realHover();
+
+        cy
+          .get('@itemOne')
+          .find('button.destroy')
+          .should('be.visible');
+    });
+
     it('Delete first todo', () => {
         deleteTodo(0)
           .then(() => checkState(ITEM_TWO));
