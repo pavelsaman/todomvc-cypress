@@ -1,3 +1,4 @@
+/// <reference types="Cypress" />
 
 const ALL_ITEMS = '.todo-list li';
 const TOGGLE = '.toggle';
@@ -71,4 +72,20 @@ export const setState = () => {
       });
 
     cy.reload();
+};
+export const changeTodo = (n, newText) => {
+    cy
+      .get(ALL_ITEMS)
+      .eq(n)
+      .as('selectedTodo');
+      
+    cy
+      .get('@selectedTodo')
+      .dblclick();
+
+    cy
+      .get('@selectedTodo')
+      .find('input.edit')
+      .clear()
+      .type(`${newText}{Enter}`);    
 };

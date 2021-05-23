@@ -15,6 +15,7 @@ import {
     todosCount, 
     clearCompleted,
     setState,
+    changeTodo,
 } from './utils';
 const ITEM_ONE = 'Learn Cypress';
 const ITEM_TWO = 'Learn JS';
@@ -253,4 +254,19 @@ describe('Clear completed todos', () => {
         goToAll()
           .then(() => checkState(ITEM_TWO));
     });
+});
+
+describe('Update todos', () => {
+
+  beforeEach(() => {
+      cy
+        .visit('/');
+      setState();
+  });
+
+  it('Change text of todo #1', () => {
+      const newText = 'Learn it all';
+      changeTodo(0, newText);
+      checkState(newText, ITEM_TWO);
+  });
 });
