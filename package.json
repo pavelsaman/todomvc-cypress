@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Some smoke & regression e2e checks in Cypress for TODO MVC app",
   "scripts": {
-    "open": "./node_modules/.bin/cypress open",
-    "run": "./node_modules/.bin/cypress run --headless --browser chromium"
+    "open": "cypress open",
+    "run": "cypress run --headless --browser chromium"
   },
   "keywords": [
     "todos",
