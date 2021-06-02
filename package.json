@@ -4,7 +4,7 @@
   "description": "Some smoke & regression e2e checks in Cypress for TODO MVC app",
   "scripts": {
     "open": "cypress open",
-    "run": "cypress run --headless --browser chromium"
+    "test": "cypress run --headless --browser chromium"
   },
   "keywords": [
     "todos",
