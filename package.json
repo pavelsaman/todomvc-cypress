@@ -15,7 +15,7 @@
   "author": "Pavel Saman",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "~7.3.0",
+    "cypress": "~7.4.0",
     "cypress-real-events": "~1.4.0"
   }
 }
