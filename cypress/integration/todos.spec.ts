@@ -1,3 +1,4 @@
+// @ts-check
 /// <reference types="Cypress" />
 
 import {
@@ -16,9 +17,9 @@ import {
     clearCompleted,
     setState,
     changeTodo,
-} from './utils';
-const ITEM_ONE = 'Learn Cypress';
-const ITEM_TWO = 'Learn JS';
+} from 'integration/utils';
+const ITEM_ONE: string = 'Learn Cypress';
+const ITEM_TWO: string = 'Learn JS';
 
 describe('Persistent state', () => {
 

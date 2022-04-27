@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./cypress",
+    "strict": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "target": "es6",
+    "lib": ["es5", "es6", "dom"],
+    "types": ["cypress", "cypress-real-events"]
+  },
+  "include": ["**/*.ts"]
+}

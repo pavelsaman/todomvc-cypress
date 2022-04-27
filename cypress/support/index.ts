@@ -1,3 +1,4 @@
+// @ts-check
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your test files.
@@ -13,9 +14,9 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-// Import commands.js using ES2015 syntax:
-import './commands'
-import "cypress-real-events/support";
+// Import commands.ts using ES2015 syntax:
+import 'support/commands';
+import 'cypress-real-events/support';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

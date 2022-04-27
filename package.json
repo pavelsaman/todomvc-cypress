@@ -1,7 +1,7 @@
 {
   "name": "todomvc-cypress",
   "version": "1.0.0",
-  "description": "Some smoke & regression e2e checks in Cypress for TODO MVC app",
+  "description": "Smoke & regression e2e checks in Cypress and TypeScript for TODO MVC app",
   "scripts": {
     "open": "cypress open",
     "test": "cypress run --headless --browser chromium"
@@ -15,7 +15,8 @@
   "author": "Pavel Saman",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "~7.4.0",
-    "cypress-real-events": "~1.4.0"
+    "cypress": "~9.6.0",
+    "cypress-real-events": "~1.7.0",
+    "typescript": "~4.6.3"
   }
 }

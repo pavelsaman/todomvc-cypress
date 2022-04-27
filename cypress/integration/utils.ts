@@ -1,11 +1,12 @@
+// @ts-check
 /// <reference types="Cypress" />
 
-const ALL_ITEMS = '.todo-list li';
-const TOGGLE = '.toggle';
-const TOGGLE_ALL = '.toggle-all';
+const ALL_ITEMS: string = '.todo-list li';
+const TOGGLE: string = '.toggle';
+const TOGGLE_ALL: string = '.toggle-all';
 
 export const allItems = () => cy.get(ALL_ITEMS);
-export const newTodos = (...todoNames) => {
+export const newTodos = (...todoNames: string[]) => {
     todoNames.forEach(todoName => {
       cy
         .get('.new-todo')
@@ -13,7 +14,7 @@ export const newTodos = (...todoNames) => {
     });
     return allItems();
 };
-export const toggleTodo = n => {
+export const toggleTodo = (n: number) => {
     cy
       .get(TOGGLE)
       .eq(n)
@@ -23,7 +24,7 @@ export const toggleTodo = n => {
       .eq(n)
       .should('have.class', 'completed');
 };
-export const unToggleTodo = n => {
+export const unToggleTodo = (n: number) => {
     cy
       .get(TOGGLE)
       .eq(n)
@@ -49,12 +50,12 @@ export const unToggleAll = () => {
     allItems()
       .each(todo => expect(todo).not.to.have.class('completed'));
 };
-export const checkState = (...todos) => {
+export const checkState = (...todos: string[]) => {
     allItems()
       .should('have.length', todos.length)
       .each((todo, i) => expect(todo).to.contain.text(todos[i]));
 };
-export const deleteTodo = n => cy.get(ALL_ITEMS).eq(n).realHover().find('.destroy').click();
+export const deleteTodo = (n: number) => cy.get(ALL_ITEMS).eq(n).realHover().find('.destroy').click();
 export const goToAll = () => cy.get('a').contains('All').click();
 export const goToActive = () => cy.get('a').contains('Active').click();
 export const goToCompleted = () => cy.get('a').contains('Completed').click();
@@ -73,7 +74,7 @@ export const setState = () => {
 
     cy.reload();
 };
-export const changeTodo = (n, newText) => {
+export const changeTodo = (n: number, newText: string) => {
     cy
       .get(ALL_ITEMS)
       .eq(n)
