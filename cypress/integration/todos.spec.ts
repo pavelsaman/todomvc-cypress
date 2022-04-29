@@ -17,7 +17,7 @@ import {
     clearCompleted,
     setState,
     changeTodo,
-} from 'integration/utils';
+} from 'support/utils/utils';
 const ITEM_ONE: string = 'Learn Cypress';
 const ITEM_TWO: string = 'Learn JS';
 

@@ -5,8 +5,8 @@
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "target": "es6",
-    "lib": ["es5", "es6", "dom"],
-    "types": ["cypress", "cypress-real-events"]
+    "lib": ["ES2021", "dom"],
+    "types": ["node", "cypress", "cypress-real-events"]
   },
   "include": ["**/*.ts"]
 }

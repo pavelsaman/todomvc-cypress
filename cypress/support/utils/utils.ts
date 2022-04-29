@@ -6,7 +6,7 @@ const TOGGLE: string = '.toggle';
 const TOGGLE_ALL: string = '.toggle-all';
 
 export const allItems = () => cy.get(ALL_ITEMS);
-export const newTodos = (...todoNames: string[]) => {
+export const newTodos = (...todoNames: Array<string>) => {
     todoNames.forEach(todoName => {
       cy
         .get('.new-todo')
@@ -50,7 +50,7 @@ export const unToggleAll = () => {
     allItems()
       .each(todo => expect(todo).not.to.have.class('completed'));
 };
-export const checkState = (...todos: string[]) => {
+export const checkState = (...todos: Array<string>) => {
     allItems()
       .should('have.length', todos.length)
       .each((todo, i) => expect(todo).to.contain.text(todos[i]));
