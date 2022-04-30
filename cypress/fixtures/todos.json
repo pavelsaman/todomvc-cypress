@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Learn Cypress",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "title": "Learn JS",
+    "completed": false
+  }
+]
