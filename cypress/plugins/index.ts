@@ -20,4 +20,27 @@
 export default (on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  config.env.ci = process.env.CI ?? false;
+
+  on('before:browser:launch', (browser: any = {}, launchOptions) => {
+    console.log(launchOptions.args);
+
+    if (config.env.ci) return launchOptions;
+
+    if (browser.family === 'chromium') {
+      launchOptions.args.push('--auto-open-devtools-for-tabs');
+    }
+
+    if (browser.family === 'firefox') {
+      launchOptions.args.push('-devtools');
+    }
+
+    if (browser.name === 'electron') {
+      launchOptions.preferences.devTools = true;
+    }
+
+    return launchOptions;
+  });
+
+  return config;
 }
