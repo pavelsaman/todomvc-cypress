@@ -3,13 +3,6 @@
 
 import todos from 'fixtures/todos.json';
 
-type TODO = {
-  id: number;
-  title: string;
-  completed: boolean;
-};
-const [ todo_one, todo_two ]: Array<TODO> = todos;
-
 const ALL_ITEMS: string = '.todo-list li';
 const TOGGLE: string = '.toggle';
 const TOGGLE_ALL: string = '.toggle-all';
@@ -71,7 +64,7 @@ export const goToCompleted = () => cy.get('a').contains('Completed').click();
 export const todosCount = () => cy.get('.todo-count');
 export const clearCompleted = () => cy.get('.clear-completed').click();
 export const setState = () => {
-    window.localStorage.setItem(Cypress.env('storageItemName'), JSON.stringify([todo_one, todo_two]));
+    window.localStorage.setItem(Cypress.env('storageItemName'), JSON.stringify(todos));
     cy.reload();
 };
 export const changeTodo = (n: number, newText: string) => {
