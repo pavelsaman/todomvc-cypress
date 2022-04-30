@@ -4,7 +4,9 @@
 import todos from 'fixtures/todos.json';
 
 type TODO = {
-  [key:string]: string | number | boolean;
+  id: number;
+  title: string;
+  completed: boolean;
 };
 const [ todo_one, todo_two ]: Array<TODO> = todos;
 
