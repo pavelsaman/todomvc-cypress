@@ -1,25 +1,16 @@
 // @ts-check
 /// <reference types="cypress" />
-// ***********************************************************
-// This example plugins/index.ts can be used to load plugins
-//
-// You can change the location of this file or turn off loading
-// the plugins file with the 'pluginsFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/plugins-guide
-// ***********************************************************
 
-// This function is called when a project is opened or re-opened (e.g. due to
-// the project's config changing)
+type APPENV = {
+  baseUrl: string;
+};
 
 /**
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
 export default (on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+
   config.env.ci = process.env.CI ?? false;
 
   on('before:browser:launch', (browser: any = {}, launchOptions) => {
@@ -41,6 +32,15 @@ export default (on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions) =
 
     return launchOptions;
   });
+
+  const app: string = process.env.APP || config.env.app || 'prod';
+  let appConfig: APPENV;
+  try {
+    appConfig = require(`../config/${app}.json`);
+  } catch (e) {
+    throw new Error('Wrong environment, please see available environments in ../config/*');
+  }
+  config.baseUrl = appConfig.baseUrl;
 
   return config;
 }

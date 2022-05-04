@@ -15,7 +15,7 @@
 // ***********************************************************
 
 // Import commands.ts using ES2015 syntax:
-import 'support/commands';
+import 'support/commands/commands';
 import 'cypress-real-events/support';
 
 // Alternatively you can use CommonJS syntax:
